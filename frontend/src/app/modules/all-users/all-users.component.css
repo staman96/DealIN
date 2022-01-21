@@ -1,0 +1,23 @@
+table {
+  width:100%;
+  margin-top: 30px;
+}
+th{
+  font-weight: 600; 
+  font-size: 150%;
+  background-color: coral;
+  color: black;
+}
+td{
+  font-size: 112%;
+  background-color: azure;
+}
+button{
+  border: black;
+  position: center;
+  scale: 250%;
+  background-color: cornflowerblue;
+}
+button:hover{
+  background-color: lightblue;
+}

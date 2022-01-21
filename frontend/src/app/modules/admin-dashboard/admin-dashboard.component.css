@@ -1,0 +1,16 @@
+.welcome{
+    text-align: center;
+    font-size: 350%;
+    color: coral;
+    background-color: black;
+    /* border-color: black; */
+    /* border-style: solid; */
+    border-radius: 10px;
+    display: block;
+}
+
+.butt{
+    background-color:coral;
+    margin-right: 10px;
+    font-weight: bold; 
+}

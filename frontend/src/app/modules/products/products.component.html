@@ -1,0 +1,48 @@
+<div class="super_container">
+
+    <app-side-bar></app-side-bar>
+    <div class="container-fluid no-padding">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="top-section">
+                    <img class="top-img" src="assets/images/shop.jpg">
+                    <div class="overlay">
+                        <h1>All Products</h1>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>       
+    <div class="container-fluid">
+        <mat-slide-toggle [(ngModel)]="search" (change)="enableSearch()" > Search {{param | uppercase }} Products</mat-slide-toggle>
+        <div *ngIf="search">
+            <app-search [_products]="products"></app-search>
+        </div>
+        <div class="height-30"></div>
+        <div class="row">
+            
+            <div class="col-md-12">
+                
+                <div class="row">
+                    <div class="col-md-3" *ngFor="let product of obs | async">
+                        <div class="product-box">
+                            <img src="https://picsum.photos/380">
+                            <a routerLink="/product/{{product.product_slug}}"><h2 class="product-title">{{product.product_name}}</h2></a>
+                            <span class="price">${{product.current_value}}</span>
+                            <div class="product-action">
+                                <a routerLink="/product/{{product.product_slug}}">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <mat-paginator class="col-md-12" [pageSize]="8" [pageSizeOptions]="[8, 12, 20]" showFirstLastButtons></mat-paginator>
+                </div>     
+            </div>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+
+</div>

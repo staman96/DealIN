@@ -1,0 +1,47 @@
+
+
+/*************************
+	list
+*************************/
+
+table {
+	width:100%;
+	/* margin-top: 30px; */
+	margin-bottom: 70px;
+	
+  }
+  th{
+	font-weight: 600; 
+	font-size: 150%;
+	background-color: #ecb58d;
+	color: black;
+  }
+  td{
+	font-size: 112%;
+	background-color: azure;
+  }
+  button{
+	border: black;
+	position: center;
+	scale: 250%;
+	background-color: cornflowerblue;
+  }
+  button:hover{
+	background-color: lightblue;
+  }
+  button.addP{
+	background-color: rgb(180, 71, 8);
+	color: whitesmoke;
+  }
+  button.addP:hover{
+	  opacity: 0.8;
+  }
+.filter{
+	margin-top: 15px;
+	/* width: 100%;
+	font-size: 14px; */
+}
+.link:hover{
+	background-color: rgb(16, 173, 173);
+	cursor: pointer;
+}

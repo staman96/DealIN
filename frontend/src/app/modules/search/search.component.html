@@ -1,0 +1,16 @@
+<div class="height-30"></div>
+<div class="filters well clearfix container-fluid">
+
+    <input class="search-input" (keyup)="searchName$.next($event.target.value)" placeholder="name">
+
+    <input class="search-input" (keyup)="searchCat$.next($event.target.value)" placeholder="category">
+
+    <input class="search-input" (keyup)="searchDesc$.next($event.target.value)" placeholder="description">
+
+    <input class="search-input" type="number" (keyup)="searchMinVal$.next($event.target.value)" placeholder="min price">
+
+    <input class="search-input" type="number" (keyup)="searchMaxVal$.next($event.target.value)" placeholder="max price">
+
+    <input class="search-input" (keyup)="searchLoc$.next($event.target.value)" placeholder="Location">
+
+</div>

@@ -1,0 +1,147 @@
+<div class="super_container">
+
+    <app-side-bar></app-side-bar>
+    <!-- Home -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="signUpform" (ngSubmit)="onSubmit(signUpform.value)">
+                <div class="container">
+                    <h1>Sign Up</h1>
+                    <p>Please fill in this form to create an account. (* Required fields)</p>
+                    <hr>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="*Username" formControlName="username" class="form-control"  [ngClass]="{ 'is-invalid': submitted && s.username.errors }">
+                        <div  *ngIf="submitted && signUpform.controls['username'].invalid" class="invalid-feedback">
+                            <div  *ngIf="signUpform.controls['username'].errors.required">Username is required.</div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <input type="email" placeholder="*Email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.email.errors }">
+                        <div  *ngIf="signUpform.controls['email'].invalid" class="invalid-feedback">
+                            <div  *ngIf="signUpform.controls['email'].errors.required">Email is required.</div>
+                            <div *ngIf="signUpform.controls['email'].errors && signUpform.controls['email'].errors.emailTaken">
+                                Oh noes, this email is already taken!
+                            </div>
+                            <div  *ngIf="signUpform.controls['email'].errors.email">Invalid email pattern.</div>
+                        </div>
+                    </div>
+                    
+                
+                    <div class="form-group">
+                        <input type="password" placeholder="*Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.password.errors}">
+                        <div  *ngIf="submitted && signUpform.controls['password'].invalid" class="invalid-feedback">
+                            <div  *ngIf="signUpform.controls['password'].errors.required">Password is required.</div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <input type="password" placeholder="*Confirm Password" formControlName="password_rpt" pattern="{{signUpform.controls['password'].value}}" class="form-control"  [ngClass]="{ 'is-invalid': submitted && s.password_rpt.errors}">
+                        <div  *ngIf="signUpform.controls['password_rpt'].invalid" class="invalid-feedback">
+                            <div  *ngIf="signUpform.controls['password_rpt'].errors.required">Password needs confirmation.</div>
+                            <div  *ngIf="signUpform.controls['password_rpt'].errors.pattern">Passwords do not match.</div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <input type="text" placeholder="*First Name" formControlName="firstname" class="form-control"  [ngClass]="{ 'is-invalid': submitted && s.firstname.errors }">
+                        <div  *ngIf="signUpform.controls['firstname'].invalid" class="invalid-feedback">
+                            <div  *ngIf="signUpform.controls['firstname'].errors.required">First name is required.</div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <input type="text" placeholder="*Last Name" formControlName="lastname" class="form-control"  [ngClass]="{ 'is-invalid': submitted && s.lastname.errors }">
+                        <div  *ngIf="signUpform.controls['lastname'].invalid" class="invalid-feedback">
+                            <div  *ngIf="signUpform.controls['lastname'].errors.required">Last name is required.</div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <input type="telephone" placeholder="Telephone" formControlName="telephone" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="VAT" formControlName="vat" class="form-control" >
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder=" Country , Address , Zipcode " formControlName="address" class="form-control">
+                    </div>
+
+                 <!-- <div class="form-group"> -->
+                        <!-- <label for="lastname"><b>Last Name*</b></label>
+                        <input type="text" formControlName="lastname" >
+                       -->
+                    <!-- </div> -->
+
+                    <!-- <div class="form-group">
+                        <label for="username"><b>Username*</b></label>
+                        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.username.errors }">
+                        <div *ngIf="submitted && s.username.errors" class="invalid-feedback">
+                            <div *ngIf="s.username.errors.required">username is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user_password"><b>Password*</b></label>
+                        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.password.errors }">
+                        <div *ngIf="submitted && s.password.errors" class="invalid-feedback">
+                            <div *ngIf="s.password.errors.required">firstname is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password-repeat"><b>Repeat Password*</b></label>
+                        <input type="password" formControlName="password-repeat" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.password.errors }">
+                        <div *ngIf="submitted && s.password-repeat.errors" class="invalid-feedback">
+                            <div *ngIf="s.password-repeat.errors.required">firstname is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><b>Email*</b></label>
+                        <input type="text" formControlName="email" required>
+                        <div *ngIf="submitted && s.email.errors" class="invalid-feedback" class="form-control" [ngClass]="{ 'is-invalid': submitted && s.password.errors }" >
+                            <div *ngIf="s.firstname.errors.required">firstname is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telephone"><b>Telephone</b></label>
+                        <input type="text" formControlName="telephone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vat"><b>VAT</b></label>
+                        <input type="text" formControlName="vat">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address"><b>Address</b></label>
+                        <input type="text" placeholder=" Country , Address , Zipcode " formControlName="address">
+                    </div>
+                    
+                    <label>
+                        <input type="checkbox" checked="checked" formControlName="remember" style="margin-bottom:15px"> Remember me
+                    </label> -->
+
+                    <div class="clearfix">
+                        <button type="submit" class="signupbtn">Sign Up</button>
+                        <button (click)="goback()" type="button" class="cancelbtn">Cancel</button> 
+                    </div> 
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+</div>

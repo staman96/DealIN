@@ -1,0 +1,77 @@
+<div class="super_container">
+
+    <app-side-bar></app-side-bar>
+	<div class="product">
+
+		<!-- Sorting & Filtering -->
+		<div class="products_bar">
+			<div class="section_container">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="products_bar_content d-flex flex-row align-items-center justify-content-start">
+								<div class="product_categories">
+									<ul class="d-flex flex-row align-items-start justify-content-start flex-wrap">
+										<li class="active"><a routerLink="/products">All Products</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Product Content -->
+		<div class="section_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="product_content_container d-flex flex-lg-row flex-column align-items-start justify-content-start">
+							<div class="product_content order-lg-1 order-2">
+								<div class="product_content_inner">
+									<div class="product_image_row d-flex flex-md-row flex-column align-items-md-end align-items-start justify-content-start">
+										<div class="product_image_1 product_image">
+											<div *ngIf="product.product_image; else picsum">
+													<img src="{{product.product_image}}" alt="">
+											</div>
+											<ng-template #picsum>
+												<img src="https://picsum.photos/565" alt="">
+											</ng-template>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="product_sidebar order-lg-2 order-1">
+								<div class="product_name" >{{product.product_name}}</div>
+								
+								<app-live-price [id]="product.product_id"></app-live-price>
+
+								<div class="desc">{{product.product_description}}</div>
+
+								<div *ngIf="(logged()) && (current_is_bidder) && (product.product_status === '1')">
+									<div class="form-group">
+										<input #newBid type="number" placeholder="Place your bid!" class="form-control" (keyup.enter)="onBid(newBid.value); newBid.value=0">
+										<button class="bid_button" (click)="onBid(newBid.value); newBid.value=0">Bid</button>
+									</div>
+								</div>
+
+								<div class="auction_time start">Starting time: {{product.auction_starts}}</div>
+								<div class="auction_time end">Ending time: {{product.auction_ends}}</div>
+
+								<div class="product_links">
+									<ul class="owner-area">
+										<li clas="owner"><strong>Product Owner:</strong> {{seller.user_name}}</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<app-map [product_slug]="slug"></app-map>
+    <app-footer></app-footer>
+</div>

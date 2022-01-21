@@ -1,0 +1,23 @@
+<mat-toolbar color="dark">
+    <span class="main">
+        <a [routerLink]="['/admin']">CMS</a>
+    </span>
+    <div class="spacer"></div>
+    <span >
+        <a [routerLink]="['/users']">View Users</a>
+    </span>
+    <div class="spacer"></div>
+    <span >
+        <a [routerLink]="['/']">Deal In</a>
+    </span>
+    <span class="filler"></span>
+    <span >
+        <!-- <h6>Admin: </h6> -->
+        {{user.user_name}}
+    </span>
+    <div class="spacer"></div>
+    <span>
+        <button (click)="logout()">Logout</button>
+    </span>
+    
+</mat-toolbar>

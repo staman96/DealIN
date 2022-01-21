@@ -1,0 +1,49 @@
+<div class="super_container">
+    <app-side-bar></app-side-bar>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar-messages">
+                <div class="filters">
+                    <a href="javascript:void(0);" data-action="inbox" class="current">Discussions</a>
+                    <div class="create-box">
+                        <div class="message-box">
+                            <a href="javascript:void(0);" class="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            <form>
+                                    <input type="text" name="to" placeholder="User Email">
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="overflow-area">
+                <div class="inbox" *ngFor="let inbox of GroupMessages">
+                    <a href="javascript:void(0);" [attr.data-mesagesids]="inbox.messages_ids" [attr.data-luserid]="inbox.receiver_user_id" [attr.data-receiver]="inbox.receiver_user_id" [attr.data-productid]="inbox.product_id" [attr.data-sender]="inbox.sender_user_id" class="message">
+                        <span [ngClass]="[inbox.message_on_read === '1' ? 'from' : 'from unread']" >{{inbox.message_title}}</span><span class="remove" onclick="return confirm('Are you sure?')"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                        <span class="date">{{inbox.message_created_at}}</span>
+                        <span class="desc">{{inbox.message_text}}</span>
+                    </a>
+                </div>
+                <!-- <div class="sent" *ngFor="let send of SendMessages">
+                        <a href="javascript:void(0);" class="message">
+                            <span class="from" >{{send.message_title}}</span><span class="remove" onclick="return confirm('Are you sure?')"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                            <span class="date">{{send.message_created_at}}</span>
+                            <span class="desc">{{send.message_text}}</span>
+                        </a>
+                </div> -->
+            </div>
+        </div>
+            <div class="col-md-9 content-area">
+                <div class="user-messages">
+                    
+                </div>
+                <div class="send-area">
+                        <input type="text" placeholder="Write your message here..." class="message-text">
+                        <a data-luserid="" data-receiver="" data-productid="" data-sender="" href="javascript:void(0);" class="send-btn"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+    </div>
+    <app-footer></app-footer>
+</div>

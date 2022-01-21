@@ -1,0 +1,15 @@
+
+
+
+
+<div class="container">
+    <div *ngIf="type === 'pending'" class="text">
+        {{pending}}
+    </div>
+    <div *ngIf="type === 'logout'" class="text">
+        {{logout}}
+    </div>
+    <br>
+    <button class="butt" (click)="nav()">RETURN TO WEBSITE</button>
+</div>
+    

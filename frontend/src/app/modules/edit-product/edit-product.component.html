@@ -1,0 +1,85 @@
+<div class="super_container">
+
+    <app-side-bar></app-side-bar>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form [formGroup]="edPform" (ngSubmit)="onSubmit(edPform.value)">
+                    <div class="container">
+                        <h1>Edit Product: <br> {{product.product_name}}</h1>
+                        <p>Edit the fields that you want to change. (* Required fields)</p>
+                        <hr>
+    
+                        <div class="form-group">
+                            <input type="text" placeholder="*Product name" formControlName="name" class="form-control"  [ngClass]="{ 'is-invalid': submitted && a.name.errors }">
+                            <div  *ngIf="submitted && edPform.controls['name'].invalid" class="invalid-feedback">
+                                <div  *ngIf="edPform.controls['name'].errors.required">Product name is required.</div>
+                            </div>
+                        </div>
+                        
+    
+                        <div class="form-group">
+                            <input type="number" placeholder="Starting price    (default is 0)" formControlName="start_price" class="form-control">
+                        </div>
+                        
+                    
+                        <div class="form-group">
+                            <textarea placeholder="*Description" formControlName="desc" class="form-control" [ngClass]="{ 'is-invalid': submitted && a.desc.errors}"></textarea>
+                            <div  *ngIf="submitted && edPform.controls['desc'].invalid" class="invalid-feedback">
+                                <div  *ngIf="edPform.controls['desc'].errors.required">A description is required.</div>
+                            </div>
+                        </div>
+
+                        <!-- country -->
+                        <div class="form-group">
+                            <input type="text" placeholder="*Country" formControlName="country" class="form-control"  [ngClass]="{ 'is-invalid': submitted && a.country.errors }">
+                            <div  *ngIf="submitted && edPform.controls['country'].invalid" class="invalid-feedback">
+                                <div  *ngIf="edPform.controls['country'].errors.required">Country is required.</div>
+                            </div>
+                        </div>
+
+                         <!-- latitude -->
+                         <div class="form-group">
+                                <input type="number" placeholder="*Latitude" formControlName="latitude" class="form-control"  [ngClass]="{ 'is-invalid': submitted && a.latitude.errors }">
+                                <div  *ngIf="submitted && edPform.controls['latitude'].invalid" class="invalid-feedback">
+                                    <div  *ngIf="edPform.controls['latitude'].errors.required">Latitude is required.</div>
+                                </div>
+                            </div>
+
+                        <!-- longitude -->
+                        <div class="form-group">
+                            <input type="number" placeholder="*Longitude" formControlName="longitude" class="form-control"  [ngClass]="{ 'is-invalid': submitted && a.longitude.errors }">
+                            <div  *ngIf="submitted && edPform.controls['longitude'].invalid" class="invalid-feedback">
+                                <div  *ngIf="edPform.controls['longitude'].errors.required">Longitude is required.</div>
+                            </div>
+                        </div>
+
+                        <mat-form-field class="example-full-width">
+                            <input matInput [min]="minDate" [matDatepicker]="picker" placeholder="Choose ending date!" formControlName="selectedDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                         </mat-form-field>
+
+                         <div class="form-group">
+                            <input atp-time-picker formControlName="end_time" placeholder="Choose end time" arrowStyle="{'background': 'red', 'color': 'white'}"/>
+                         </div>
+
+                         <div *ngIf="!edPform.valid">At least one order must be selected!</div>
+                         <div formArrayName="cats">
+                                <div *ngFor="let category of categories; index as i" >
+                                    <input type="checkbox" formControlName="{{i}}" >{{category.category_name}}
+                                </div>
+                        </div>
+                        <div class="clearfix">
+                            <button type="submit" class="signupbtn">Update</button>
+                            <button (click)="goback()" type="button" class="cancelbtn">Cancel</button> 
+                        </div> 
+    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+    </div>

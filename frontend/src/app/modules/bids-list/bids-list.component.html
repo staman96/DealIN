@@ -1,0 +1,53 @@
+<div class="super_container">
+    <app-side-bar></app-side-bar>
+    <div class="container-fluid">
+
+        <div class="filter">
+            <mat-form-field fxFlex="40%">
+                <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Search">
+            </mat-form-field>
+        </div>
+            
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+                <!-- product name Column -->
+                <ng-container matColumnDef="product_name">
+                <th mat-header-cell  *matHeaderCellDef mat-sort-header> Product Name </th>
+                <td mat-cell (click)="toProd(bid.product_slug)" class="link" *matCellDef="let bid"> {{bid.product_name}} </td>
+                </ng-container>
+            
+                <!-- product live status -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef> Current Price and Status </th>
+                    <td mat-cell *matCellDef="let bid">
+                        <app-live-price [id]="bid.product_id"></app-live-price>
+                    </td>
+                </ng-container>
+
+                 <!--end time Column -->
+                 <ng-container matColumnDef="etime">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Ending time </th>
+                    <td mat-cell *matCellDef="let bid"> {{bid.auction_ends}} </td>
+                </ng-container>
+
+                <!--bid amount Column -->
+                <ng-container matColumnDef="bid_amount">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount bided</th>
+                    <td mat-cell *matCellDef="let bid" style="text-align: center">${{bid.bid_amount}} </td>
+                </ng-container>
+
+                <!--bid time Column -->
+                <ng-container matColumnDef="bid_time">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Time Bided</th>
+                    <td mat-cell *matCellDef="let bid"> {{bid.bid_time}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSize]="8" [pageSizeOptions]="[5, 8, 10, 12, 20]" showFirstLastButtons></mat-paginator>
+   
+    </div>
+<app-footer></app-footer>   
+</div>

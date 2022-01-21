@@ -1,0 +1,33 @@
+
+table {
+	width:100%;
+	/* margin-top: 10px; */
+	/* margin-bottom: 70px; */
+	
+  }
+  th{
+	font-weight: 600; 
+	font-size: 150%;
+	background-color: rgb(180, 71, 8);
+	color: black;
+  }
+  td{
+	font-size: 112%;
+	background-color: azure;
+  }
+  button{
+	border: black;
+	position: center;
+	/* background-color: cornflowerblue; */
+  }
+  button:hover{
+	background-color: lightblue;
+  }
+  button.addP{
+	margin-top: 15px; 
+	background-color: rgb(180, 71, 8);
+	color: whitesmoke;
+  }
+  button.addP:hover{
+	  opacity: 0.8;
+  }

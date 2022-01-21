@@ -1,0 +1,11 @@
+<div class="grid_price_status">
+    <div class="product_price">${{data.current_value}}</div>
+
+    <div class="product_status">Auction Status:
+        <div [ngSwitch]="data.product_status" class="status">
+            <div class="b" *ngSwitchCase="0">Starts soon</div>
+            <div class="g" *ngSwitchCase="1">Ongoing</div>
+            <div class="r" *ngSwitchCase="2">Ended</div>
+        </div>
+    </div>
+</div>

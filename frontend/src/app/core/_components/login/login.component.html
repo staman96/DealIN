@@ -1,0 +1,37 @@
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Login</h2>
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="container">
+                        
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">email is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_password">Password</label>
+                        <input type="password" formControlName="user_password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.user_password.errors }" />
+                        <div *ngIf="submitted && f.user_password.errors" class="invalid-feedback">
+                            <div *ngIf="f.user_password.errors.required">Password is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Login</button>
+                        <button (click)="goback()"  class="cancelbtn">Cancel</button>
+
+                    </div>
+                    <div *ngIf="error" class="alert alert-danger">Email or Password is wrong!</div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>

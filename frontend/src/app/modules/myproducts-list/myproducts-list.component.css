@@ -1,0 +1,181 @@
+
+/*************************
+	list
+*************************/
+table.mat-table {
+	width: 100%;
+	text-align:left;
+}
+th {
+    font-size:16px!important;
+	font-weight: bold!important;
+	border-right: 1px solid #cacaca;
+	padding: 20px 20px!important;
+	color: #202020;
+	outline: 0;
+	text-align: center;
+}
+th:last-child {
+	border-right: 0;
+}
+th.mat-column-product_name {
+	width: 25%;
+	text-align: center;
+}
+::ng-deep .mat-sort-header-container:not(.mat-sort-header-sorted) .mat-sort-header-arrow {
+	opacity: 1!important;
+	transform: translateY(0px) !important;
+	color: #202020;
+  }
+ td a {
+	  color: #202020!important;
+	  font-weight: bold;
+	  font-size: 14px;
+  }
+  td a:hover,
+  td a:focus,
+  td a:active {
+	  color: #ecb58d!important;
+  }
+  button.edit {
+	  background-color: orange;
+	  display: inline-block;
+	  height: 20px;
+	  font-weight: bold;
+	  color: #ffffff;
+	  margin-bottom: 5px;
+	  width: 46%;
+	  font-size: 14px;
+  }
+  button.edit:hover,
+  button.edit:focus,
+  button.edit:active {
+	  background-color:orange;
+	  color: #ffffff;
+  }
+button.del {
+	background-color:red;
+	display: inline-block;
+	height: 20px;
+	font-weight: bold;
+	color: #ffffff;
+	margin-bottom: 5px;
+	width: 46%;
+	margin-right: 0;
+	float: right;
+	font-size: 14px;
+}
+button.del:hover,
+button.del:focus,
+button.del:active {
+	background-color:red;
+	color: #ffffff;
+}
+  button.start {
+	background-color:green;
+	display: block;
+	width: 100%;
+	height: 20px;
+	font-weight: bold;
+	color: #ffffff;
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+button.start:hover,
+button.start:focus,
+button.start:active {
+	background-color:green;
+	color: #ffffff;
+}
+button.see {
+	height: 30px;
+    margin-top: 10px;
+	margin-bottom: 10px;
+	display: block;
+	width: 100%;
+	background-color: #202020;
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffff;
+}
+button.see:hover,
+button.see:focus,
+button.see:active {
+	background-color: #202020;
+	color: #ffffff;
+}
+/* table {
+	width:100%;
+	margin-bottom: 70px;
+	
+  }
+  th{
+	font-weight: 600; 
+	font-size: 150%;
+	background-color: #ecb58d;
+	color: black;
+  }
+  td{
+	font-size: 120%;
+	background-color: azure;
+  }
+  td.total{
+	  text-align: center;
+	  font-size: 130%;
+  }
+  td.mat-cell:last-of-type{
+	padding-right: 0px;
+  } */
+  button{
+	border: black;
+	position: center;
+	background-color: cornflowerblue;
+	padding: 0px 2px;
+	margin: 2px;
+	border-radius: 3px;
+	font-weight: 500;
+  }
+  button:hover{
+	background-color: lightblue;
+  }
+  button.addP{
+	margin-top: 10px; 
+	background-color: rgb(204, 99, 39);
+	color: whitesmoke;
+	padding: 0px 8px;
+  }
+  button.addP:hover{
+	  opacity: 0.8;
+  }
+
+  .grid-bids {
+	display: inline-grid;
+	display: grid;
+	grid-template-columns: 60% 40% ;
+	/* background-color: #2196F3; */
+	/* padding: 10px; */
+  }
+  
+  .bid-item {
+	/* background-color: rgba(255, 255, 255, 0.8); */
+	/* border: 1px solid rgba(0, 0, 0, 0.8); */
+	/* padding: 20px; */
+	margin-right: 40px;
+	font-size: 20px;
+	text-align: right;
+  }
+
+  .status{
+	font-size: 18px;
+	/* text-align: center; */
+	/* color: cornflowerblue; */
+}
+.status .b{
+	color: cornflowerblue;
+}
+.status .g{
+	color: forestgreen;
+}
+.status .r{
+	color: crimson;
+}

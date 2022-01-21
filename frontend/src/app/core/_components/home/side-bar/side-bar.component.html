@@ -1,0 +1,38 @@
+<div class="sidebar">
+		
+		<!-- Info -->
+		<div class="info">
+			<ul class="info_content d-flex flex-row align-items-center justify-content-start">
+				
+				<!-- login, logout, signup, my account -->
+				<ng-container *ngIf="logged(); then In; else Out"></ng-container>
+				<ng-template #In>
+					<div class="account_button" (click)="logout()">Logout</div>
+					<a routerLink="/account"><div class="account_button">{{user.user_name}}</div></a>
+				</ng-template>
+				<ng-template #Out>
+					<a routerLink="/login"><div class="account_button">Login</div></a>
+					<div routerLink="/sign-up" class="account_button">Sign Up</div>
+				</ng-template>
+
+			</ul>
+		</div>
+
+		<!-- Logo -->
+		<div class="sidebar_logo">
+			<a><div><span>Deal</span> In</div></a>
+		</div>
+
+		<!-- Sidebar Navigation -->
+		<nav class="sidebar_nav">
+			<ul>
+				<li><a style="text-decoration:none" routerLink="">home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<li *ngIf="logged()"> <a style="text-decoration:none" routerLink="/products/recommended">Recommended<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<li><a style="text-decoration:none" routerLink="/categories">Categories<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<li><a style="text-decoration:none" routerLink="/products/live">Live auctions<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<li><a style="text-decoration:none" routerLink="/products">all products<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				
+			</ul>
+		</nav>
+	</div>	
+

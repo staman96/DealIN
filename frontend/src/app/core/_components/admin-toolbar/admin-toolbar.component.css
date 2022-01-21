@@ -1,0 +1,38 @@
+mat-toolbar{
+    background-color: black;
+    color: silver;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 150%;
+    display: horizontal-grid;
+}
+.main{
+    font-size: 170%;
+    border-color: lightcoral;
+    color: black;
+    font-weight: 350;
+}
+.spacer{
+    margin-right: 2%;
+}
+a{
+    color: silver;
+}
+a:hover{
+    color: lightsalmon;
+}
+.filler {
+    flex: 1 1 auto;
+}
+button{
+    background-color: coral;
+    border: none;
+    border-radius: 4px;
+    size: 110%;
+    text-align: center;
+    padding: 10px;
+    font-size: 120%;
+    font-weight: 500;
+}
+button:hover{
+    background-color: rgba(255, 94, 0, 0.74);
+}
